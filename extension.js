@@ -1,38 +1,52 @@
 const vscode = require('vscode');
-const { exec } = require('child_process');
-const path = require('path');
+const child_process = require('child_process');
 
-function activate(context) {
-    let disposable = vscode.commands.registerCommand('extension.runBashScript', function (folder) {
-        // Accessing the configuration for the script path
-        const userConfiguredScriptPath = vscode.workspace.getConfiguration('myExtension').get('scriptPath');
+exports.activate = function(context) {
+    console.log("Extension activated");
+    
+    let disposable = vscode.commands.registerCommand('extension.runMyBashScript', (folder) => {
+        console.log("Run My Bash Script command triggered");
+        const config = vscode.workspace.getConfiguration('runMyBashScript');
+        let scriptPath = config.get('scriptPath');
 
-        // Get the root path of the currently opened project
-        const rootFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
-
-        // If the user hasn't configured a script path, use the default Script.sh in the root of the current project
-        const defaultScriptPath = rootFolder ? path.join(rootFolder, 'Script.sh') : undefined;
-
-        // Use the user-configured path if available, otherwise use the default path
-        const scriptPath = userConfiguredScriptPath || defaultScriptPath;
-
-        const folderPath = folder.fsPath;
-
-        // Execute the script with the provided folder path
-        exec(`bash "${scriptPath}" "${folderPath}"`, (error, stdout, stderr) => {
-            if (error) {
-                vscode.window.showErrorMessage(`Error running script: ${error.message}`);
-                return;
-            }
-            vscode.window.showInformationMessage(stdout);
-        });
+        if (!scriptPath) {
+            vscode.window.showOpenDialog({
+                canSelectMany: false,
+                filters: {
+                    'Bash Scripts': ['sh']
+                }
+            }).then(fileUri => {
+                if (fileUri && fileUri[0]) {
+                    scriptPath = fileUri[0].fsPath;
+                    config.update('scriptPath', scriptPath, true);
+                    promptUserAndRunScript(scriptPath, folder.fsPath);
+                }
+            });
+        } else {
+            promptUserAndRunScript(scriptPath, folder.fsPath);
+        }
     });
 
     context.subscriptions.push(disposable);
+
 }
 
-exports.activate = activate;
+function promptUserAndRunScript(scriptPath, folderPath) {
+    vscode.window.showInputBox({ prompt: 'Enter any required inputs for your script separated by commas:' }).then(inputs => {
+        if (inputs) {
+            const inputArray = inputs.split(',').map(input => input.trim());
+            runScript(scriptPath, folderPath, ...inputArray);
+        }
+    });
+}
 
-function deactivate() {}
-
-exports.deactivate = deactivate;
+function runScript(scriptPath, folderPath, ...args) {
+    const command = `bash "${scriptPath}" "${folderPath}" ${args.map(arg => `"${arg}"`).join(' ')}`;
+    child_process.exec(command, (error, stdout, stderr) => {
+        if (error) {
+            vscode.window.showErrorMessage(`Error executing script: ${stderr}`);
+        } else {
+            vscode.window.showInformationMessage(`Script executed successfully: ${stdout}`);
+        }
+    });
+}

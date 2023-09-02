@@ -1,57 +1,64 @@
-# Run Bash Script Extension README
+# Run Bash Script Extension
 
-Welcome to the README for the "Run Bash Script" extension! This extension provides a convenient way to execute bash scripts within Visual Studio Code. By simply clicking on a folder and selecting "Run My Bash Script," you can effortlessly run the script located in that folder.
+Welcome to the "Run Bash Script" extension for Visual Studio Code! This extension offers a convenient method to execute bash scripts directly within the editor. Whether you're working with a custom script or just need to run a quick bash command, this extension is here to assist.
 
 ## Features
 
-This extension streamlines the process of running bash scripts by providing a user-friendly interface. No need to open a terminal separately – just follow these steps:
+- **User-Friendly Interface**: Easily run bash scripts without the need to switch between the terminal and the editor.
+- **Dynamic Input Handling**: Provide inputs for your script directly through the extension's prompts.
+- **Custom Script Path**: Set a default script to run every time you use the extension.
 
-1. Navigate to the desired folder in the Visual Studio Code workspace.
+### How to Use
+
+1. Navigate to your desired folder within the Visual Studio Code workspace.
 2. Right-click on the folder.
-3. Choose "Run My Bash Script" from the context menu.
-
-The extension will automatically execute the bash script located in the selected folder and display the results. This eliminates the hassle of switching between the terminal and the editor.
+3. Select "Run My Bash Script" from the context menu.
+4. If prompted, choose your bash script.
+5. Enter any required inputs for your script when prompted, separated by commas.
 
 ## Requirements
 
-Before using this extension, ensure that you have the following:
-
-- Visual Studio Code installed on your system.
+- Visual Studio Code
+- Bash (must be installed and accessible from your system's PATH)
 
 ## Extension Settings
 
-The "Run Bash Script" extension does not introduce any custom settings to your Visual Studio Code environment.
+- `runMyBashScript.scriptPath`: Specifies the path to the user's preferred bash script.
 
 ## Known Issues
 
-There are currently no known issues with this extension. If you encounter any problems or have questions, feel free to reach out to me for support.
+Currently, there are no known issues with this extension. If you encounter any problems or have suggestions, please reach out for support.
 
 ## Release Notes
 
-Stay updated with the latest features and improvements as we continue to enhance this extension.
-
 ### 1.0.0
 
-Initial release of the "Run Bash Script" extension.
-
-Added the ability to execute bash scripts in subfolders.
+- Initial release of the "Run Bash Script" extension.
+- Capability to execute bash scripts in subfolders added.
 
 ## Getting Started
 
-To get started, follow these steps:
-
 1. Install the extension from the Visual Studio Code marketplace.
-2. Open your project folder in Visual Studio Code.
+2. Open your project in Visual Studio Code.
 3. Right-click on a folder containing a bash script.
-4. Select "Run My Bash Script" from the context menu.
-5. Observe the script's output in the notification or message area.
+4. Choose "Run My Bash Script" from the context menu.
+5. If prompted, select your bash script and provide the necessary inputs.
+6. View the script's output in the notification or message area.
+
+## Using Your Own Script
+
+To utilize your script with the "Run My Bash Script" extension:
+
+1. Ensure your script accepts the selected folder path as the first argument.
+2. Input any additional requirements for your script in the input box, separated by commas.
+3. Your script should process these inputs in the order they are given.
 
 ## Feedback and Support
 
-We value your feedback! If you encounter any difficulties or have suggestions for improvements, please don't hesitate to contact me through the extension's [GitHub repository](https://github.com/habibi4webdesign/run-my-bash-script-vscode-extension).
+Your feedback is invaluable! If you face any issues or have enhancement suggestions, please don't hesitate to contact me through the extension's [GitHub repository](https://github.com/habibi4webdesign/run-my-bash-script-vscode-extension) or via email at [dev.yasharhabibi@gmail.com](mailto:dev.yasharhabibi@gmail.com).
 
 ## About the Author
 
-This extension is developed and maintained by Yashar Habibi. Connect with me on GitHub for updates and more information.
+This extension is crafted and maintained by Yashar Habibi. Connect with me on GitHub for updates and further details.
 
-**Thank you for using the "Run Bash Script" extension!**
+**Thank you for choosing the "Run Bash Script" extension!**

@@ -1,8 +1,9 @@
 {
   "name": "run-bash-script",
-  "displayName": "run_bash_script",
-  "description": "",
+  "displayName": "Run My Bash Script",
+  "description": "Run My Bash Script",
   "version": "0.0.1",
+  "publisher": "YasharHabibi",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -14,8 +15,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.runBashScript",
+        "command": "extension.runMyBashScript",
         "title": "Run My Bash Script"
+      },
+      {
+        "command": "extension.overrideBashScript",
+        "title": "Override Bash Script"
       }
     ],
     "configuration": {
@@ -24,19 +29,18 @@
         "myExtension.scriptPath": {
           "type": "string",
           "default": "",
-          "description": "Path to the script you want to run."
+          "description": "Path to the user's bash script"
         }
       }
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.runMyBashScript",
+          "when": "resourceFilename != .git"
+        }
+      ]
     }
-  },
-  "menus": {
-    "explorer/context": [
-      {
-        "when": "resourceLangId == markdown",
-        "command": "extension.runBashScript",
-        "group": "navigation"
-      }
-    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -52,5 +56,6 @@
     "mocha": "^10.2.0",
     "typescript": "^5.1.6",
     "@vscode/test-electron": "^2.3.4"
-  }
+  },
+  "repository": "https://github.com/habibi4webdesign/run-my-bash-script-vscode-extension"
 }
