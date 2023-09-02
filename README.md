@@ -1,14 +1,13 @@
 # Run Bash Script Extension
 
-Welcome to the "Run Bash Script" extension for Visual Studio Code! This extension offers a convenient method to execute bash scripts directly within the editor. Whether you're working with a custom script or just need to run a quick bash command, this extension is here to assist.
+Welcome to the "Run Bash Script" extension for Visual Studio Code! This extension offers a seamless way to execute bash scripts directly within the editor. Whether you're working with a custom script or just need to run a quick bash command, this extension is here to assist.
 
-![Right click on any folder to run the bash script](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot1.png
-)
+![Right click on any folder to run the bash script](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot1.png)
 
 ## Features
 
-- **User-Friendly Interface**: Easily run bash scripts without the need to switch between the terminal and the editor.
-- **Dynamic Input Handling**: Provide inputs for your script directly through the extension's prompts.
+- **User-Friendly Interface**: Run bash scripts without the need to toggle between the terminal and the editor.
+- **Intuitive Input Handling**: The extension now prompts you for each parameter in your script, making it easier to understand what each input is for.
 - **Custom Script Path**: Set a default script to run every time you use the extension.
 
 ### How to Use
@@ -17,10 +16,9 @@ Welcome to the "Run Bash Script" extension for Visual Studio Code! This extensio
 2. Right-click on the folder.
 3. Select "Run My Bash Script" from the context menu.
 4. If prompted, choose your bash script.
-5. Enter any required inputs for your script when prompted, separated by commas.
+5. The extension will ask for each parameter your script requires. Provide the necessary inputs when prompted.
 
-![It asks you to enter the path to the bash script](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot2.png
-)
+![It asks you to enter the path to the bash script](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot2.png)
 
 ## Requirements
 
@@ -40,7 +38,7 @@ Currently, there are no known issues with this extension. If you encounter any p
 ### 1.0.0
 
 - Initial release of the "Run Bash Script" extension.
-- Capability to execute bash scripts in subfolders added.
+- Enhanced input handling for bash scripts.
 
 ## Getting Started
 
@@ -48,19 +46,21 @@ Currently, there are no known issues with this extension. If you encounter any p
 2. Open your project in Visual Studio Code.
 3. Right-click on a folder containing a bash script.
 4. Choose "Run My Bash Script" from the context menu.
-5. If prompted, select your bash script and provide the necessary inputs.
+5. If prompted, select your bash script and provide the necessary inputs one by one.
 6. View the script's output in the notification or message area.
 
-![Then you need to type your script parameters comma separated and then press enter](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot3.png
-)
+This is just for a sample script which has two parameters(NAME and EXTENSION_TYPE):
+
+![Ask your script parameters one by one](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot3.png)
+
+![Ask your script parameters one by one](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot4.png)
 
 ## Using Your Own Script
 
 To utilize your script with the "Run My Bash Script" extension:
 
 1. Ensure your script accepts the selected folder path as the first argument.
-2. Input any additional requirements for your script in the input box, separated by commas.
-3. Your script should process these inputs in the order they are given.
+2. The extension will prompt you for each parameter your script requires. Provide the necessary inputs when prompted.
 
 ## Feedback and Support
 

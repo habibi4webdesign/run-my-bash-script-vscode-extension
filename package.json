@@ -2,7 +2,7 @@
   "name": "run-bash-script",
   "displayName": "Run My Bash Script",
   "description": "This extension offers a convenient method to execute bash scripts directly within the editor. Whether you're working with a custom script or just need to run a quick bash command, this extension is here to assist.",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "publisher": "YasharHabibi",
   "icon": "icon.png",
   "engines": {
@@ -79,7 +79,11 @@
     },
     {
       "path": "./images/screenshot3.png",
-      "description": "Then you need to type your script parameters comma separated and then press enter"
+      "description": "It asks you to enter your script parameters one by one"
+    },
+    {
+      "path": "./images/screenshot4.png",
+      "description": "It asks you to enter your script parameters one by one"
     },
     {
       "path": "./images/demo.gif",
