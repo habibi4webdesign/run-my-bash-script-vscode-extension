@@ -1,0 +1,24 @@
+# Node.js related
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Compiled files
+out/
+dist/
+
+# VS Code specific files
+.vscode/
+.vscode-test/
+*.code-workspace
+
+# Editor specific files
+.idea/
+
+# OS generated files
+.DS_Store
+
+
+
