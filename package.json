@@ -1,7 +1,7 @@
 {
   "name": "run-bash-script",
   "displayName": "Run My Bash Script",
-  "description": "Run My Bash Script",
+  "description": "This extension offers a convenient method to execute bash scripts directly within the editor. Whether you're working with a custom script or just need to run a quick bash command, this extension is here to assist.",
   "version": "0.0.3",
   "publisher": "YasharHabibi",
   "icon": "icon.png",
@@ -58,5 +58,32 @@
     "typescript": "^5.1.6",
     "@vscode/test-electron": "^2.3.4"
   },
-  "repository": "https://github.com/habibi4webdesign/run-my-bash-script-vscode-extension"
+  "repository": "https://github.com/habibi4webdesign/run-my-bash-script-vscode-extension",
+  "keywords": [
+    "bash",
+    "script",
+    "run",
+    "execute",
+    "terminal",
+    "shell",
+    "contextmenu"
+  ],
+  "screenshots": [
+    {
+      "path": "./images/screenshot1.png",
+      "description": "Right click on any folder to run the bash script"
+    },
+    {
+      "path": "./images/screenshot2.png",
+      "description": "It asks you to enter the path to the bash script"
+    },
+    {
+      "path": "./images/screenshot3.png",
+      "description": "Then you need to type your script parameters comma separated and then press enter"
+    },
+    {
+      "path": "./images/demo.gif",
+      "description": "Animated demo of the extension"
+    }
+  ]
 }
