@@ -8,7 +8,7 @@ Welcome to the "Run Bash Script" extension for Visual Studio Code! This extensio
 
 - **User-Friendly Interface**: Run bash scripts without the need to toggle between the terminal and the editor.
 - **Intuitive Input Handling**: The extension now prompts you for each parameter in your script, making it easier to understand what each input is for.
-- **Custom Script Path**: Set a default script to run every time you use the extension.
+- **Custom Script Path**: Set a default script to run every time you use the extension. You can also override the previously selected script with the `overrideBashScript` command.
 
 ### How to Use
 
@@ -49,7 +49,7 @@ Currently, there are no known issues with this extension. If you encounter any p
 5. If prompted, select your bash script and provide the necessary inputs one by one.
 6. View the script's output in the notification or message area.
 
-This is just for a sample script which has two parameters(NAME and EXTENSION_TYPE):
+For a sample script which has two parameters (NAME and EXTENSION_TYPE):
 
 ![Ask your script parameters one by one](https://raw.githubusercontent.com/habibi4webdesign/run-my-bash-script-vscode-extension/main/images/Screenshot3.png)
 

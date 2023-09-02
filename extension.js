@@ -2,12 +2,10 @@ const vscode = require("vscode");
 const child_process = require("child_process");
 const fs = require("fs");
 exports.activate = function (context) {
-  console.log("Extension activated");
 
-  let disposable = vscode.commands.registerCommand(
+  let runDisposable = vscode.commands.registerCommand(
     "extension.runMyBashScript",
     (folder) => {
-      console.log("Run My Bash Script command triggered");
       const config = vscode.workspace.getConfiguration("runMyBashScript");
       let scriptPath = config.get("scriptPath");
 
@@ -32,7 +30,29 @@ exports.activate = function (context) {
     }
   );
 
-  context.subscriptions.push(disposable);
+
+  let overrideDisposable = vscode.commands.registerCommand(
+    "extension.overrideBashScript",
+    () => {
+      const config = vscode.workspace.getConfiguration("runMyBashScript");
+      vscode.window
+        .showOpenDialog({
+          canSelectMany: false,
+          filters: {
+            "Bash Scripts": ["sh"],
+          },
+        })
+        .then((fileUri) => {
+          if (fileUri && fileUri[0]) {
+            const newScriptPath = fileUri[0].fsPath;
+            config.update("scriptPath", newScriptPath, true);
+            vscode.window.showInformationMessage("Script path updated successfully!");
+          }
+        });
+    }
+  );
+
+  context.subscriptions.push(runDisposable, overrideDisposable);
 };
 
 function promptUserAndRunScript(scriptPath, folderPath) {
@@ -45,7 +65,6 @@ function promptUserAndRunScript(scriptPath, folderPath) {
     const params = extractParameters(data);
     collectInputs(params).then((inputs) => {
       if (inputs !== undefined) {
-        // <-- Modified this line
         runScript(scriptPath, folderPath, ...inputs);
       }
     });
